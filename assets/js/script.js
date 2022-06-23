@@ -392,6 +392,7 @@ let map, infoWindow;
 let markersArray = [];
 
 function initMap() {
+ 
   const myLatlng = { lat: -1.300509, lng: 36.784709};
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -1.300509, lng: 36.784709 },
@@ -406,37 +407,114 @@ function initMap() {
   });
 
 
-  //Markers Array
+  
 
-  var markers = [
+
+  //Land Markers Array
+
+  var landMarkers = [
     {
-      coords: { lat: -1.300509, lng: 36.784709 },
+      coords: { lat: -1.293278, lng: 36.780111 },
       iconImage:
-        "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-      content: "<h1>Moringa School</h1>",
+        "https://drive.google.com/file/d/1zRmE4B8M1HU9fLPbWY9p3y6OGH6b4dzE/view?usp=sharing",
+      content: "<h1></h1>",
     },
     {
-      coords: { lat: -1.296422, lng: 36.782225 },
+      iconImage:
+        "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+      coords: { lat: -1.29581, lng: 36.775081 },
       content: "<h1>Chizaa</h1>",
     },
     {
-      coords: { lat: -1.297527, lng: 36.784961 },
+      iconImage:
+        "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+      coords: { lat: -1.297816, lng: 36.779866 },
       content: "<h1>Eazy</h1>",
     },
     {
-      coords: { lat: -1.297527, lng: 36.784961 },
+      iconImage:
+        "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+      coords: { lat: -1.300787, lng: 36.778539 },
       content: "<h1>Eazy</h1>",
     },
     {
-      coords: { lat: -1.301255, lng: 36.782494 },
+      iconImage:
+        "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+      coords: { lat: -1.302621, lng: 36.786299 },
       content: "<h1>DK</h1>",
     },
   ];
 
-  //Loop through markers
-  for (var i = 0; i < markers.length; i++) {
-    addMarker(markers[i]);
+  //Loop through land markers
+  for (var i = 0; i < landMarkers.length; i++) {
+    addMarker(landMarkers[i]);
   }
+
+ //Residential Markers Array
+
+ var residentialMarkers = [
+  {
+    coords: { lat: -1.252588, lng: 36.778997 },
+    iconImage:
+      "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+    content: "<h1>Moringa School</h1>",
+  },
+  {
+    coords: { lat: -1.255483, lng: 36.77615 },
+    content: "<h1>Chizaa</h1>",
+  },
+  {
+    coords: { lat: -1.257392, lng: 36.780409 },
+    content: "<h1>Eazy</h1>",
+  },
+  {
+    coords: { lat: -1.25443, lng: 36.781151 },
+    content: "<h1>Eazy</h1>",
+  },
+  {
+    coords: { lat: -1.252543, lng: 36.783774 },
+    content: "<h1>DK</h1>",
+  },
+];
+
+//Loop through residential markers
+for (var i = 0; i < residentialMarkers.length; i++) {
+  addMarker(residentialMarkers[i]);
+}
+
+
+ //Commercial Markers Array
+
+ var commercialMarkers = [
+  {
+    coords: { lat: -1.291116, lng: 36.820834 },
+    iconImage: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+    content: "<h1>Moringa School</h1>",
+  },
+  {
+    coords: { lat: -1.279929, lng: 36.782225 },
+    content: "<h1>Chizaa</h1>",
+  },
+  {
+    coords: { lat: -1.297527, lng: 36.826156 },
+    content: "<h1>Eazy</h1>",
+  },
+  {
+    coords: { lat: -1.28974, lng: 36.822246 },
+    content: "<h1>Eazy</h1>",
+  },
+  {
+    coords: { lat: -1.28214, lng: 36.81467 },
+    content: "<h1>DK</h1>",
+  },
+];
+
+//Loop through commercial markers
+for (var i = 0; i < commercialMarkers.length; i++) {
+  addMarker(commercialMarkers[i]);
+}
+
+
 
   //ADD MARKERS FUNCTION
 
@@ -466,7 +544,7 @@ function initMap() {
       });
     });
   }
-
+  
   
 }
 
