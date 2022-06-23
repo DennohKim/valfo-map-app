@@ -418,31 +418,42 @@ function initMap() {
       coords: { lat: -1.293278, lng: 36.780111 },
       iconImage:
         "https://drive.google.com/file/d/1zRmE4B8M1HU9fLPbWY9p3y6OGH6b4dzE/view?usp=sharing",
-      content: "<h1></h1>",
+      content: "<h1>Ongoing Land Sale</h1>"+
+      "<p>Value: 22000000</p>" 
     },
     {
       iconImage:
         "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
       coords: { lat: -1.29581, lng: 36.775081 },
-      content: "<h1>Chizaa</h1>",
+      content: "<h1>Recent Sale</h1>"+
+      "<p>Value: <br><strong>22,000,000</strong> </p>"+
+      "<p>Date <br><strong>2020-11-01</strong> </p>"
+      
+
     },
     {
       iconImage:
         "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
       coords: { lat: -1.297816, lng: 36.779866 },
-      content: "<h1>Eazy</h1>",
+      content: "<h1>Recent Sale</h1>"+
+      "<p>Value: <br><strong>16,500,000</strong> </p>"+
+      "<p>Date <br><strong>2020-10-01</strong> </p>"
     },
     {
       iconImage:
         "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
       coords: { lat: -1.300787, lng: 36.778539 },
-      content: "<h1>Eazy</h1>",
+      content: "<h1>Ongoing Land Sale</h1>"+
+      "<p>Value: <br><strong>30,000,000</strong> </p>"+
+      "<p>Date <br><strong>2020-09-01</strong> </p>"
     },
     {
       iconImage:
         "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
       coords: { lat: -1.302621, lng: 36.786299 },
-      content: "<h1>DK</h1>",
+      content: "<h1>Ongoing Land Sale</h1>"+
+      "<p>Value: <br><strong>27,000,000</strong> </p>"+
+      "<p>Date <br><strong>2020-09-01</strong> </p>"
     },
   ];
 
@@ -456,25 +467,33 @@ function initMap() {
  var residentialMarkers = [
   {
     coords: { lat: -1.252588, lng: 36.778997 },
-    iconImage:
-      "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    content: "<h1>Moringa School</h1>",
+    content: "<h1>Townhouse</h1>"+
+    "<p>Value: <br><strong>27,000,000</strong> </p>"+
+    "<p>Date <br><strong>2020-09-01</strong> </p>"
   },
   {
     coords: { lat: -1.255483, lng: 36.77615 },
-    content: "<h1>Chizaa</h1>",
+    content: "<h1>Maisonette</h1>"+
+    "<p>Value: <br><strong>4,000,000</strong> </p>"+
+    "<p>Date <br><strong>2021-02-09</strong> </p>"
   },
   {
     coords: { lat: -1.257392, lng: 36.780409 },
-    content: "<h1>Eazy</h1>",
+    content: "<h1>3 Bed Apartment</h1>"+
+    "<p>Value: <br><strong>45,000,000</strong> </p>"+
+    "<p>Date <br><strong>2020-11-19</strong> </p>"
   },
   {
     coords: { lat: -1.25443, lng: 36.781151 },
-    content: "<h1>Eazy</h1>",
+    content: "<h1>2 Bed Apartment</h1>"+
+    "<p>Value: <br><strong>27,000,000</strong> </p>"+
+    "<p>Date <br><strong>2020-11-19</strong> </p>"
   },
   {
     coords: { lat: -1.252543, lng: 36.783774 },
-    content: "<h1>DK</h1>",
+    content: "<h1>Double Storey House</h1>"+
+    "<p>Value: <br><strong>50,000,000</strong> </p>"+
+    "<p>Date <br><strong>2021-02-01</strong> </p>"
   },
 ];
 
@@ -489,24 +508,33 @@ for (var i = 0; i < residentialMarkers.length; i++) {
  var commercialMarkers = [
   {
     coords: { lat: -1.291116, lng: 36.820834 },
-    iconImage: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    content: "<h1>Moringa School</h1>",
+    content: "<h1>Office Space</h1>"+
+    "<p>Value: <br><strong>45,000,000</strong> </p>"+
+    "<p>Date <br><strong>2020-11-31</strong> </p>"
   },
   {
     coords: { lat: -1.279929, lng: 36.782225 },
-    content: "<h1>Chizaa</h1>",
+    content: "<h1>Retail space</h1>"+
+    "<p>Value: <br><strong>23,000,000</strong> </p>"+
+    "<p>Date <br><strong>2020-10-01</strong> </p>"
   },
   {
     coords: { lat: -1.297527, lng: 36.826156 },
-    content: "<h1>Eazy</h1>",
+    content: "<h1>Office Space</h1>"+
+    "<p>Value: <br><strong>78,000,000</strong> </p>"+
+    "<p>Date <br><strong>2020-03-01</strong> </p>"
   },
   {
     coords: { lat: -1.28974, lng: 36.822246 },
-    content: "<h1>Eazy</h1>",
+    content: "<h1>Retail space</h1>"+
+    "<p>Value: <br><strong>56,000,000</strong> </p>"+
+    "<p>Date <br><strong>2021-08-21</strong> </p>"
   },
   {
     coords: { lat: -1.28214, lng: 36.81467 },
-    content: "<h1>DK</h1>",
+    content: "<h1>Office Space</h1>"+
+    "<p>Value: <br><strong>32,000,000</strong> </p>"+
+    "<p>Date <br><strong>2021-02-21</strong> </p>"
   },
 ];
 
