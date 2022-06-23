@@ -48,6 +48,7 @@ const landSize = document.querySelector("#land-size");
 const landValue = document.querySelector("#land-value");
 const landValueDate = document.querySelector("#land-value-date");
 const landForm = document.querySelector("#land-form");
+const deleteButton = document.querySelector("delete")
 const landUrl = `http://localhost:3000/land`;
 let landInfo;
 
@@ -115,6 +116,9 @@ function renderLandDetail(landDetail) {
                   <p >LR No: <span id="land-reference" class="font-bold">${landDetail.reference}</span> </p>
                   <p >Size: <span id="land-size" class="font-bold"> ${landDetail.size}</span></p>
                   <p >Value:  <span id="land-value" class="font-bold"> ${landDetail.value}</span></p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <button class="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="delete" value="Delete" type="button">Delete</button>
                 </div>
   `
   //Append Div container to DOM
@@ -203,6 +207,40 @@ function renderCommercialDetail(commercialDetail) {
 
 
 //FORM INPUT HANDLERS
+
+//LAND
+//Event Listener
+landForm.addEventListener('submit', handleLandSubmit)
+
+function handleLandSubmit(event) {
+  event.preventDefault();
+  // alert("Form has been submitted!")
+  let landObject = {
+
+      description: event.target.land_input_description.value,
+      value: event.target.land_input_value.value,
+      reference: event.target.land_input_reference.value,
+      size: event.target.land_input_size.value ,
+      date: event.target.land_valuation_date.value,
+  }
+
+  renderLandDetail(landObject)
+  addLandComparable(landObject)
+}
+
+function addLandComparable (landObject) {
+  // console.log(JSON.stringify(landObject))
+  fetch(landUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(landObject)
+  })
+  .then(res => res.json())
+  .then(landDetail => console.log(landDetail))
+  .catch(err => console.error(err))
+}
 
 
 
