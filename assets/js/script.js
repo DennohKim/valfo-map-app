@@ -248,6 +248,7 @@ function handleLandSubmit(event) {
 
   renderLandDetail(landObject)
   addLandComparable(landObject)
+  landForm.reset()
 }
 
 function addLandComparable (landObject) {
@@ -281,6 +282,7 @@ function handleResidentialSubmit(event) {
 
   renderResidentialDetail(residentialObject)
   addResidentialComparable(residentialObject)
+  residentialForm.reset()
 }
 
 function addResidentialComparable (residentialObject){
@@ -319,6 +321,8 @@ function handleCommercialSubmit(event) {
 
   renderCommercialDetail(commercialObject)
   addCommercialComparable(commercialObject)
+  commercialForm.reset()
+
 }
 
 function addCommercialComparable (commercialObject){
