@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap"
       rel="stylesheet"
@@ -12,8 +13,8 @@
      
     </style>
   </head>
-  <body>
-    <div class="flex w-screen p-10 main-container">
+  <body class="h-screen overflow-auto">
+    <div class="flex  p-10 main-container">
       <div class="bg-[#E62953] rounded-bl-md rounded-tl-md border components-container">
         <div class="logo-container">
           <img src="" alt="" />
@@ -75,6 +76,7 @@
               </form>
               <!-- LAND DETAILS -->
               <h1 class="text-white font-bold text-xl mb-4">Property Details</h1>
+              <!-- RENDERED DIVS GOES HERE -->
             </div>
 
             <!-- RESIDENTIAL -->
@@ -83,31 +85,31 @@
               <form id = "residential-form" class="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div class="flex gap-x-8">
                   <div class="mb-4 ">
-                    <label class="flex text-gray-700 text-sm font-bold mb-2" for="Land">
+                    <label class="flex text-gray-700 text-sm font-bold mb-2" for="Residential">
                       Description
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="land-input" type="text" placeholder="Land">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="residential_input_description" type="text" placeholder="Townhouse">
                   </div>
                   <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="Land Reference">
                       Land Reference No.
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="land-reference" type="text" placeholder="123/45">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="residential_input_reference" type="text" placeholder="123/45">
                   </div>
                 </div>
                 <div class="flex gap-x-8">
                   
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="value">
                       Value
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Kshs">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="residential_input_value" type="number" placeholder="Kshs">
                   </div>
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Floor Area">
                       Floor area
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Per sqft">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="residential_input_area" type="number" placeholder="Per sqft">
                   </div>
                 </div>
                 <div class="flex gap-x-8">
@@ -115,25 +117,25 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                       Rent
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="kshs" type="text" placeholder="Kshs">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="residential_input_rent" type="number" placeholder="Kshs">
                   </div>
                   <div class="mb-4 ">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                       Date of valuation
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="valuation-date" placeholder="" type="date">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="residential_valuation_date" placeholder="" type="date">
                   </div>
                 </div>
-                <div class="flex items-center justify-between">
-                  <button class="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                    Add Comparable
-                  </button>
-                </div>
+        
+                  <div class="flex items-center justify-between">
+                    <input class="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submit" value="Add Comparable" type="submit"></input>
+                  </div>
+              
               </form>
 
               <!-- PROPERTY DETAILS -->
-
               <h1 class="text-white font-bold text-xl mb-4">Property Details</h1>
+              <!-- RENDERED DIVS GOES HERE -->
             </div>
 
             <!-- COMMERCIAL -->
@@ -141,74 +143,75 @@
               <form id="commercial-form" class="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div class="flex gap-x-8">
                   <div class="mb-4 ">
-                    <label class="flex text-gray-700 text-sm font-bold mb-2" for="Land">
+                    <label class="flex text-gray-700 text-sm font-bold mb-2" for="Commercial">
                       Description
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="land-input" type="text" placeholder="Land">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commercial_input_description" type="text" placeholder="Office Space">
                   </div>
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Land Reference">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Property Name">
                       Property name
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="land-reference" type="text" placeholder="123/45">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commercial_input_name" type="text" placeholder="Times Tower">
                   </div>
                 </div>
                 <div class="flex gap-x-8">
                   
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Date of valuation">
                       Date of valuation
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commercial_valuation_date" type="date">
                   </div>
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Commercial Reference">
                       LR No.
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commercial_input_reference" type="text" placeholder="123/45">
                   </div>
                 </div>
                 <div class="flex gap-x-8">
                   
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="value">
                       Value
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commercial_input_value" type="number" placeholder="Kshs">
                   </div>
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Floor Area">
                       Floor area
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commercial_input_area" type="number" placeholder="Sqft">
                   </div>
                 </div>
                 <div class="flex gap-x-8">
                   
                   <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Service Charge">
                       Service Charge
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service-charge" type="number" placeholder="Per sqft">
                   </div>
                   <div class="mb-4 ">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Rent">
                       Rent
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="valuation-date" placeholder="" type="date">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="commercial_input_rent" placeholder="Kshs" type="number">
                   </div>
                   
                 </div>
             
                 <div class="flex items-center justify-between">
-                  <button class="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                    Add Comparable
-                  </button>
+                  <input class="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submit" value="Add Comparable" type="submit"></input>
                 </div>
               </form>
 
               <!-- PROPERTY DETAILS -->
               <h1 class="text-white font-bold text-xl mb-4">Property Details</h1>
+
+              <!-- RENDERED DIVS GOES HERE -->
+
             </div>
           </div>
         </div>

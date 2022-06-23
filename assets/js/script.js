@@ -50,6 +50,7 @@ const landValueDate = document.querySelector("#land-value-date");
 const landForm = document.querySelector("#land-form");
 const deleteButton = document.querySelector("delete")
 const landUrl = `http://localhost:3000/land`;
+const deleteBtn = document.querySelector("delete-btn");
 let landInfo;
 
 //RESIDENTIAL
@@ -104,24 +105,29 @@ function renderLandDetail(landDetail) {
   
   //Build property card
   const mainDetailsContainer = document.createElement("div");
-  mainDetailsContainer.className = "mainDetailsContainer flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4";
+  mainDetailsContainer.className = "mainDetailsContainer flex flex-col bg-white shadow-md rounded px-8 pt-4 pb-4 mb-4";
   mainDetailsContainer.innerHTML =
   `
   <div id="land-title-container" class="flex justify-between">
-                  <h1 id="land-description">${landDetail.description}</h1>
-                  <h2 id="land-value-date">${landDetail.date}</h2>
-                </div>
-                  
-                <div id="land-details-container" class="flex justify-between pt-4" >
-                  <p >LR No: <span id="land-reference" class="font-bold">${landDetail.reference}</span> </p>
-                  <p >Size: <span id="land-size" class="font-bold"> ${landDetail.size}</span></p>
-                  <p >Value:  <span id="land-value" class="font-bold"> ${landDetail.value}</span></p>
-                </div>
-                <div class="flex items-center justify-between">
-                  <button class="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="delete" value="Delete" type="button">Delete</button>
-                </div>
+      <h1 id="land-description">${landDetail.description}</h1>
+      <h2 id="land-value-date">${landDetail.date}</h2>
+       <a id="delete-btn" class="fill-slate-300 cursor-pointer" href="#"><i class="fa-solid fa-trash  "></i></a>
+    </div>
+    <div id="land-details-container" class="flex justify-between pt-4 mb-4" >
+      <p >LR No: <br><span id="land-reference" class="font-bold">${landDetail.reference}</span> </p>
+      <p >Size: <br><span id="land-size" class="font-bold"> ${landDetail.size} Ac</span></p>
+      <p >Value:  <br><span id="land-value" class="font-bold"> ${landDetail.value}</span></p>
+    </div>
+      
   `
-  //Append Div container to DOM
+ //delete HTML element
+ mainDetailsContainer.querySelector("#delete-btn").addEventListener('click', () => {
+  mainDetailsContainer.remove();
+  deleteLandComparable(landDetail.id)
+    
+})
+
+ //Append Div container to DOM
   mainContainer.append(mainDetailsContainer)
 
 }
@@ -147,17 +153,23 @@ function renderResidentialDetail(residentialDetail) {
       <div id="residential-title-container" class="flex justify-between">
         <h1 id="residential-description">${residentialDetail.description}</h1>
         <h2 id="residential-value-date">${residentialDetail.date}</h2>
+        <a id="delete-btn" class="fill-slate-300 cursor-pointer" href="#"><i class="fa-solid fa-trash  "></i></a>
       </div>
       <div  id="residential-details" class="flex justify-between pt-4 property-detail">
-        <p  class="">LR No: <span id="residential-reference" class="font-bold">${residentialDetail.reference}</span> </p>
-        <p >Floor area: <span id="floor-area" class="font-bold">${residentialDetail.area}</span></p>
-        <p >Value:  <span id="residential-value" class="font-bold">${residentialDetail.value}</span></p>
-      </div>
-      <div class="flex justify-between pt-4 property-detail">
-        <p  class="">Rent: <span id="residential-rent" class="font-bold">${residentialDetail.rent}</span> </p>
+        <p  class="">LR No: <br><span id="residential-reference" class="font-bold">${residentialDetail.reference}</span> </p>
+        <p >Floor area: <br><span id="floor-area" class="font-bold">${residentialDetail.area}</span></p>
+        <p >Value:  <br><span id="residential-value" class="font-bold">${residentialDetail.value}</span></p>
       </div>
           
   `
+  
+  //delete HTML element
+  mainDetailsContainer.querySelector("#delete-btn").addEventListener('click', () => {
+  mainDetailsContainer.remove();
+  deleteResidentialComparable(residentialDetail.id)
+    
+}) 
+
   //Append Div container to DOM
   mainResidentialContainer.append(mainDetailsContainer)
   
@@ -187,19 +199,28 @@ function renderCommercialDetail(commercialDetail) {
       <div id="residential-title-container" class="flex justify-between">
         <h1 id="residential-description">${commercialDetail.description}</h1>
         <h2 id="residential-value-date">${commercialDetail.date}</h2>
+        <a id="delete-btn" class="fill-slate-300 cursor-pointer" href="#"><i class="fa-solid fa-trash  "></i></a>
       </div>
       <div id="commercial-details" class="flex justify-between pt-4 property-detail">
-        <p >LR No: <span  id="commercial-reference"  class="font-bold">${commercialDetail.reference}</span> </p>
-        <p >Floor area: <span id="floor-area-commercial" class="font-bold">${commercialDetail.area}</span></p>
-        <p >Value:  <span id="commercial-value" class="font-bold">${commercialDetail.value}</span></p>
+        <p >Property Name:  <br> <span id="commercial-value" class="font-bold">${commercialDetail.name}</span></p>
+        <p >LR No: <br><span  id="commercial-reference"  class="font-bold">${commercialDetail.reference}</span> </p>
+        <p >Floor area: <br><span id="floor-area-commercial" class="font-bold">${commercialDetail.area}</span></p>
       </div>
       <div class="flex justify-between pt-4 property-detail">
-        <p >Rent: <span id="commercial-rent" class="font-bold">${commercialDetail.rent}</span> </p>
-        <p >Service Charge: <span id="service-charge" class="font-bold">${commercialDetail.service}</span></p>
-        <p class="invisible">Value:  <span class="font-bold"> 3,000,000</span></p>
+        <p >Rent: <br><span id="commercial-rent" class="font-bold">${commercialDetail.rent}</span> </p>
+        <p >Service Charge: <br><span id="service-charge" class="font-bold">${commercialDetail.service}</span></p>
+        <p >Value: <br><span class="font-bold"> ${commercialDetail.value}</span></p>
       </div>
           
   `
+
+ //delete HTML element
+ mainDetailsContainer.querySelector("#delete-btn").addEventListener('click', () => {
+  mainDetailsContainer.remove();
+  deleteCommercialComparable(commercialDetail.id)
+    
+}) 
+
   //Append Div container to DOM
   mainCommercialContainer.append(mainDetailsContainer)
 
@@ -229,7 +250,6 @@ function handleLandSubmit(event) {
 }
 
 function addLandComparable (landObject) {
-  // console.log(JSON.stringify(landObject))
   fetch(landUrl, {
     method: 'POST',
     headers: {
@@ -242,12 +262,117 @@ function addLandComparable (landObject) {
   .catch(err => console.error(err))
 }
 
+//RESIDENTIAL
+
+residentialForm.addEventListener('submit', handleResidentialSubmit)
+
+function handleResidentialSubmit(event) {
+  event.preventDefault();
+  let residentialObject = {
+
+      description: event.target.residential_input_description.value,
+      value: event.target.residential_input_value.value,
+      reference: event.target.residential_input_reference.value,
+      area: event.target.residential_input_area.value ,
+      date: event.target.residential_valuation_date.value,
+      rent: event.target.residential_input_rent.value,
+  }
+
+  renderResidentialDetail(residentialObject)
+  addResidentialComparable(residentialObject)
+}
+
+function addResidentialComparable (residentialObject){
+  fetch(residentialUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(residentialObject)
+  })
+  .then(res => res.json())
+  .then(residentialDetail => console.log(residentialDetail))
+  .catch(err => console.error(err))
+}
 
 
 
+//COMMERCIAL
 
 
+commercialForm.addEventListener('submit', handleCommercialSubmit)
 
+function handleCommercialSubmit(event) {
+  event.preventDefault();
+  let commercialObject = {
+
+      description: event.target.commercial_input_description.value,
+      name: event.target.commercial_input_name.value,
+      value: event.target.commercial_input_value.value,
+      reference: event.target.commercial_input_reference.value,
+      area: event.target.commercial_input_area.value ,
+      date: event.target.commercial_valuation_date.value,
+      rent: event.target.commercial_input_rent.value,
+      service: event.target.service-charge.value,
+  }
+
+  renderCommercialDetail(commercialObject)
+  addCommercialComparable(commercialObject)
+}
+
+function addCommercialComparable (commercialObject){
+  fetch(commercialUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(commercialObject)
+  })
+  .then(res => res.json())
+  .then(commercialDetail => console.log(commercialDetail))
+  .catch(err => console.error(err))
+}
+
+
+//DELETE LAND FUNCTION
+function deleteLandComparable(id){
+  fetch(`http://localhost:3000/land/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+
+  })
+  .then(res => res.json())
+  .then(landData => console.log(landData))
+}
+
+
+//DELETE RESIDENTIAL FUNCTION
+function deleteResidentialComparable(id){
+  fetch(`http://localhost:3000/residential/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+
+  })
+  .then(res => res.json())
+  .then(residentialData => console.log(residentialData))
+}
+
+//DELETE COMMERCIAL FUNCTION
+function deleteCommercialComparable(id){
+  fetch(`http://localhost:3000/commercial/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+
+  })
+  .then(res => res.json())
+  .then(commercialData => console.log(commercialData))
+}
 
 
 
@@ -260,8 +385,8 @@ function addLandComparable (landObject) {
 
 // Initialize and add the map
 
-const mySecreyApiKey = "AIzaSyB_XdpV4aul3MWtWNt7yykbqe5kcmP-B_M"
-const googleMapsLink = `https://maps.googleapis.com/maps/api/js?key=${mySecreyApiKey}&callback=initMap`
+const mySecretApiKey = "AIzaSyB_XdpV4aul3MWtWNt7yykbqe5kcmP-B_M"
+const googleMapsLink = `https://maps.googleapis.com/maps/api/js?key=${mySecretApiKey}&callback=initMap`
 
 let map, infoWindow;
 let markersArray = [];
