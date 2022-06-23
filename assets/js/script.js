@@ -48,8 +48,8 @@ const landSize = document.querySelector("#land-size");
 const landValue = document.querySelector("#land-value");
 const landValueDate = document.querySelector("#land-value-date");
 const landForm = document.querySelector("#land-form");
-const deleteButton = document.querySelector("delete")
-const landUrl = `http://localhost:3000/land`;
+const deleteButton = document.querySelector("delete");
+const landUrl = " https://dennohkim.github.io/valfo-map-app/db.json";
 const deleteBtn = document.querySelector("delete-btn");
 let landInfo;
 
@@ -65,7 +65,7 @@ const residentialValueDate = document.querySelector("#residential-value-date")
 const residentialValue = document.querySelector("#residential-value");
 const residentialRent = document.querySelector("#residential-rent");
 const residentialForm = document.querySelector("#residential-form");  
-const residentialUrl = "http://localhost:3000/residential";
+const residentialUrl = "https://dennohkim.github.io/valfo-map-app/db.json";
 
 //COMMERCIAL
 const mainCommercialContainer = document.getElementById("third")
@@ -80,7 +80,7 @@ const commercialValueDate = document.querySelector("#commercial-value-date");
 const commercialRent = document.querySelector("#commercial-rent");
 const serviceCharge = document.querySelector("#service-charge");
 const commercialForm = document.querySelector("#commercial-form");
-const commercialUrl = " http://localhost:3000/commercial";
+const commercialUrl = "https://dennohkim.github.io/valfo-map-app/db.json";
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchLandDetails()
@@ -91,14 +91,15 @@ document.addEventListener("DOMContentLoaded", () => {
 //FETCH LAND DETAILS FROM API
 function fetchLandDetails() {
   const fetchLandDetailsFromEndPoint = fetch(landUrl)
-    .then((response) => response.json())
+    .then(response => (response.json()))
+    // .then(data => console.log(data.land)); 
     .then(renderLandDetails);
 
   return fetchLandDetailsFromEndPoint;
 }
 
 function renderLandDetails(landDetails) {
-  landDetails.forEach(renderLandDetail);
+  landDetails.land.forEach(renderLandDetail);
 }
 
 function renderLandDetail(landDetail) {
@@ -141,7 +142,7 @@ function fetchResidentialDetails() {
 }
 
 function renderResidentialDetails(residentialDetails) {
-  residentialDetails.forEach(renderResidentialDetail);
+  residentialDetails.residential.forEach(renderResidentialDetail);
 }
 
 function renderResidentialDetail(residentialDetail) {
@@ -187,7 +188,7 @@ function fetchCommercialDetails() {
 }
 
 function renderCommercialDetails(commercialDetails) {
-  commercialDetails.forEach(renderCommercialDetail);
+  commercialDetails.commercial.forEach(renderCommercialDetail);
 }
 
 function renderCommercialDetail(commercialDetail) {
