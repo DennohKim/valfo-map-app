@@ -49,7 +49,7 @@ const landValue = document.querySelector("#land-value");
 const landValueDate = document.querySelector("#land-value-date");
 const landForm = document.querySelector("#land-form");
 const deleteButton = document.querySelector("delete");
-const landUrl = " https://dennohkim.github.io/valfo-map-app/db.json";
+const landUrl = "https://valfo-map-app.herokuapp.com/land";
 const deleteBtn = document.querySelector("delete-btn");
 let landInfo;
 
@@ -65,7 +65,7 @@ const residentialValueDate = document.querySelector("#residential-value-date")
 const residentialValue = document.querySelector("#residential-value");
 const residentialRent = document.querySelector("#residential-rent");
 const residentialForm = document.querySelector("#residential-form");  
-const residentialUrl = "https://dennohkim.github.io/valfo-map-app/db.json";
+const residentialUrl = "https://valfo-map-app.herokuapp.com/residential";
 
 //COMMERCIAL
 const mainCommercialContainer = document.getElementById("third")
@@ -80,7 +80,7 @@ const commercialValueDate = document.querySelector("#commercial-value-date");
 const commercialRent = document.querySelector("#commercial-rent");
 const serviceCharge = document.querySelector("#service-charge");
 const commercialForm = document.querySelector("#commercial-form");
-const commercialUrl = "https://dennohkim.github.io/valfo-map-app/db.json";
+const commercialUrl = "https://valfo-map-app.herokuapp.com/commercial";
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchLandDetails()
@@ -99,7 +99,7 @@ function fetchLandDetails() {
 }
 
 function renderLandDetails(landDetails) {
-  landDetails.land.forEach(renderLandDetail);
+  landDetails.forEach(renderLandDetail);
 }
 
 function renderLandDetail(landDetail) {
@@ -142,7 +142,7 @@ function fetchResidentialDetails() {
 }
 
 function renderResidentialDetails(residentialDetails) {
-  residentialDetails.residential.forEach(renderResidentialDetail);
+  residentialDetails.forEach(renderResidentialDetail);
 }
 
 function renderResidentialDetail(residentialDetail) {
@@ -188,7 +188,7 @@ function fetchCommercialDetails() {
 }
 
 function renderCommercialDetails(commercialDetails) {
-  commercialDetails.commercial.forEach(renderCommercialDetail);
+  commercialDetails.forEach(renderCommercialDetail);
 }
 
 function renderCommercialDetail(commercialDetail) {
